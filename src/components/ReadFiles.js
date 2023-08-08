@@ -2,7 +2,7 @@
 import Papa from 'papaparse';
 
 async function readCsvData() {
-  const response = await fetch(process.env.PUBLIC_URL + '/movies.csv');
+  const response = await fetch(process.env.PUBLIC_URL + '/moviedata.csv');
   const csv = await response.text();
   const { data } = Papa.parse(csv, { header: true, dynamicTyping: true });
 
