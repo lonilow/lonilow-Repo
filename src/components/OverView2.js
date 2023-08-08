@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactECharts from 'echarts-for-react';
 
 
-
 function Overview2() {
     const option = {
         title : {
@@ -64,6 +63,7 @@ function Overview2() {
             option={option}
             style={{ height: '100%' }}
             onChartReady={onChartReady}
+            
           />
         </>
       );
