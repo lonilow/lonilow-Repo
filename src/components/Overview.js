@@ -1,33 +1,36 @@
-import React, { useContext } from 'react';
-import { store } from "../store";
-import ReactEcharts from "echarts-for-react";
-import 'echarts/map/js/china';
+import React from 'react';
+import ReactECharts from 'echarts-for-react';
+
+
 
 function Overview() {
-    const {state, dispatch} = useContext(store);
 
-    const getOption = () => {
-        return {
-            xAxis: {
-                type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [{
-                data: [120, 200, 150, 80, 70, 110, 130],
-                type: 'bar',
-                showBackground: true,
-                backgroundStyle: {
-                    color: 'rgba(180, 180, 180, 0.2)'
-                }
-            }]
-        };
-    };
-
-    return <div>
-        <ReactEcharts option={getOption()} />;
+    const options = {
+        title:{
+            text:'OverView'
+        },
+        xAxis: {
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        },
+        yAxis: {
+          type: 'value',
+        },
+        series: [
+          {
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            type: 'line',
+            smooth: true,
+          },
+        ],
+        tooltip: {
+          trigger: 'axis',
+        },
+      };
+    return <div style={{ height: '100%', width: '100%' }}>
+        <ReactECharts option={options}
+        style={{ height: '110%', width: '100%' }}
+        />
     </div>
 }
 
