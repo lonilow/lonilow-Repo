@@ -1,88 +1,29 @@
 //这个文件将文件读取封装起来，fileData变量存储了读取文件的数据
-/*let fileData;
+import Papa from 'papaparse';
 
-const input = document.createElement('input');
-input.type = 'file';
-input.accept = '.csv';
+async function readCsvData() {
+  const response = await fetch(process.env.PUBLIC_URL + '/movies.csv');
+  const csv = await response.text();
+  const { data } = Papa.parse(csv, { header: true, dynamicTyping: true });
 
-input.addEventListener('change', (e) => {
-  const file = e.target.files[0];
-  const reader = new FileReader();
-
-  reader.onload = (event) => {
-    fileData = event.target.result;
-
-    // 将 CSV 文件内容按行拆分为数组
-    if (fileData) {
-      const rows = fileData.split('\n');
-      // 将每行内容按逗号拆分为数组，并返回二维数组
-      const data = rows.map((row) => row.split(','));
-
-      console.log(data); // 输出数组内容
-    } else {
-      console.log('fileData is undefined or empty');
-    }
-  };
-
-  reader.readAsText(file);
-});
-
-document.body.appendChild(input);*/
-
-// fileUtils.js
-
-let fileData;
-
-export function readFileData(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-
-    reader.onload = (event) => {
-      fileData = event.target.result;
-      resolve(fileData);
-    };
-
-    reader.onerror = (event) => {
-      reject(event.error);
-    };
-
-    reader.readAsText(file);
-  });
+  return (data);
 }
 
-export function getData() {
-  if (fileData) {
-    const rows = fileData.split('\n');
-    const data = rows.map((row) => row.split(','));
-    return data;
-  }
-  return null;
-}
+export default readCsvData;
 
-/*使用说明
-在需要使用data数组的视图下复制以下代码
+/*使用时，请在需要使用的控件文件下复制以下代码
+import readCsvData from './ReadFiles';
 
-import { readFileData, getData } from './ReadFiles';
-
-// 创建 input 元素
-const input = document.createElement('input');
-input.type = 'file';
-input.accept = '.csv';
-
-// 添加 input 元素到文档中
-document.body.appendChild(input);
-
-// 绑定 change 事件处理程序
-input.addEventListener('change', async (e) => {
-  const file = e.target.files[0];
-  await readFileData(file);
-
-  // 在这里可以根据需要进行处理
-  const data = getData();
+async function useData() {
+  const data = await readCsvData();
   if (data) {
-    console.log("fileData uploaded successfully!");
-  } else {
-    console.log('fileData is undefined or empty');
+    console.log('Data loaded successfully!');
+    //console.log(data);
+    // 在这里使用 data 数组
   }
-});*/
-//这样做会使得input元素变得非常多，有待改进
+}
+
+useData();
+
+这里的控制台是为了输出测试。数据将被保存在data变量中，直接使用即可
+注意，上传的数据现在是一行一行分开的，但是没有拆成一项一项的。使用的时候要注意*/
