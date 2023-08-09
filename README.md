@@ -31,9 +31,9 @@
 
 1. Material UI
    组件库
-1. clsx
+2. clsx
    拼接类名
-1. papaparse
+3. papaparse
    解析.csv文件
 
 ## 下载相应的库
@@ -56,7 +56,7 @@ echarts
 `npm config set legacy-peer-deps true`
 `npm i`
 
-1. 可能的冲突（暂未发生
+2. 可能的冲突（暂未发生
 `node.js`版本:使用nvm进行版本控制
 # 如何使用
 之后可能会发生文件架构的改动

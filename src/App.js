@@ -8,7 +8,7 @@ import AssistView from "./components/AssistView";
 import DetailView from "./components/DetailView";
 import OverView from "./components/OverView";
 import OverView2 from "./components/OverView2";
-import ReadFiles from "./components/ReadFiles";
+
 
 // 这是JSS的写法，相当于声明了一些css的类
 const useStyles = makeStyles(theme => ({

@@ -47,15 +47,6 @@ function Overview2() {
         console.log('echarts is ready', echarts);
       }
     
-      function onChartClick(param, echarts) {
-        console.log(param, echarts);
-        setCount(count + 1);
-      };
-    
-      function onChartLegendselectchanged(param, echarts) {
-        console.log(param, echarts);
-      };
-    
       return (
         <>
           <ReactECharts
