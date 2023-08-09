@@ -4,8 +4,6 @@ import readCsvData from './ReadFiles'
 import { DataGrid, GridToolbarFilterButton,GridToolbarColumnsButton, GridToolbarContainer, GridToolbarExport } from '@material-ui/data-grid';
 
 
-
-
 // 数据
 // 这种形式的 table id属性必须存在不要动
 // id 不能够用相同的，否则后面的id会替代前面的
