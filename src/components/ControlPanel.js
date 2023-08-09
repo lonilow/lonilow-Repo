@@ -1,13 +1,15 @@
-import React from 'react';
-
+import React from 'react';  
 
 
 function ControlPanel() {
    
     
-    return <div style={{ width: '100%', height: '100%' }}>  
-    
-    </div>;
+
+    return (  
+        <div>  
+        
+      </div>  
+    );  
 }
 
 export default ControlPanel;
