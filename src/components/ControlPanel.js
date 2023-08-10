@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },    
 }));    
     
-const options = ['Year', 'Budget', 'Score', 'Votes', 'Runtime', 'Genre'];    
+const options1 = ['Year', 'Budget', 'Score', 'Votes', 'Runtime', 'Genre'];    
 const options2 = ['line', 'bar', ];    
     
 export default function DropdownSelect({ onOption1Change, onOption2Change }) {    
@@ -46,7 +46,7 @@ export default function DropdownSelect({ onOption1Change, onOption2Change }) {
           value={selectedOption1}    
           onChange={handleChange1}    
         >    
-          {options.map((option, index) => (    
+          {options1.map((option, index) => (    
             <MenuItem key={index} value={option}>    
               {option}    
             </MenuItem>    

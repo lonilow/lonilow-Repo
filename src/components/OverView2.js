@@ -59,7 +59,9 @@ const chartData = [
     chartTitle: '',
     chartOption: {
       title: {
-          text: '主要电影公司票房情况(单位：亿元)'
+          text: '主要电影公司票房情况(单位：亿元)',
+          subtext: '',
+          x:'center',
       },
       tooltip: {},
       legend: {
@@ -206,7 +208,7 @@ const chartData = [
   }
 ];
 
-function ChartCarousel() {
+export default function ChartCarousel() {
   const [currentChartIndex, setCurrentChartIndex] = useState(0);
   const [showCurrentChart, setShowCurrentChart] = useState(true);
 
@@ -244,5 +246,3 @@ function ChartCarousel() {
     </>
   );
 }
-
-export default ChartCarousel;

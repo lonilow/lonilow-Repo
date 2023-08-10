@@ -14,7 +14,9 @@ const Overview = React.memo(({ selectedData }) =>{
   const option = {  
     title:{
       text:'利润-投入',
-      
+      subtext: '',
+      x:'center',
+      y:'bottom',
     },
     tooltip: {  
       trigger: 'axis', 
@@ -26,7 +28,7 @@ const Overview = React.memo(({ selectedData }) =>{
           const year = yearData[dataIndex];
           const movie = nameData[dataIndex];  
           const budget = budgetData[dataIndex];  
-          return `Movie: ${movie}<br/>Year: ${year}<br/>Gross：${gross}<br/>Budget：${budget}`;  
+          return `Movie: ${movie}<br/>Year: ${year}<br/>Gross:${gross}<br/>Budget:${budget}`;  
       },  
   }, 
     grid: {  
@@ -65,9 +67,8 @@ const Overview = React.memo(({ selectedData }) =>{
   };  
   
   return (  
-    <div >  
-      <ReactECharts option={option}
-      />  
+    <div>  
+      <ReactECharts option={option}/>  
     </div>  
   );  
 });

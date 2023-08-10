@@ -13,7 +13,6 @@ field: 'id',
 headerName: 'ID',
 width: 90,
 type:'number',
-hide:true,
 },
 {
 field: 'Name',
@@ -27,7 +26,7 @@ width: 90,
 },
 {
 field: 'Genre',
-headerName: '种类',
+headerName: '体裁',
 width: 90,
 },
 {

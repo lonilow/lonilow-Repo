@@ -28,10 +28,10 @@
     <style>
       .slider-container-left {
         position: absolute;
-        top: 0px;
-        left: 0px;
+        top: 0;
+        left: 0;
         width: 84px;
-        height: 840px;
+        height: 100%;
         overflow: hidden;
         display: none;
       }
@@ -51,10 +51,10 @@
 
       .slider-container-right {
         position: absolute;
-        top: 0px;
-        right: 0px;
+        top: 0;
+        right: 0;
         width: 84px;
-        height: 840px;
+        height: 100%;
         overflow: hidden;
         display: none;
       }
@@ -72,12 +72,42 @@
         100% {transform: translateY(0);}
       }
 
+      .marquee {
+        position: absolute;
+        top: 7px;
+        width: 650px;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #ff0000;
+        display: none;
+        animation: marquee 5s linear infinite;
+      }
+      @keyframes marquee {
+        0% { transform: translateX(-400px); }
+        100% { transform: translateX(400px); }
+      }
+
+      .marquef {
+        position: absolute;
+        bottom: 7px;
+        width: 650px;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #ff0000;
+        display: none;
+        animation: marquef 3s linear infinite;
+      }
+      @keyframes marquef {
+        0% { transform: translateX(270px); }
+        100% { transform: translateX(-400px); }
+      }
+
       .background-container {
         position: absolute;
         top: 0;
         right: 0;
-        width: 1651px;
-        height: 840px;
+        width: 1700px;
+        height: 841px;
         background-color: #6c80a8;
         background-size: cover;
       }
@@ -86,12 +116,16 @@
         position: absolute;
         bottom: 7px;
         right: 100px;
-        padding: 10px 20px;
+        width: 70px;
+        height: 40px;
         background-color: #2d2d2d;
         color: #9d0000;
         border: none;
         border-radius: 5px;
         font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
       }
       .toggle-button:hover {
@@ -103,12 +137,32 @@
         position: absolute;
         bottom: 7px;
         right: 300px;
-        padding: 10px 20px;
+        width: 70px;
+        height: 40px;
         background-color: #6c80a8;
         color: #e1e0e1;
         border: none;
         border-radius: 5px;
         font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .warm-button {
+        position: absolute;
+        bottom: 7px;
+        right: 200px;
+        width: 70px;
+        height: 40px;
+        background-color: #e9a475;
+        color: #f2c29f;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
       }
     </style>
@@ -118,6 +172,10 @@
         Left.style.display = Left.style.display === 'none' ? 'block' : 'none';
         var Right = document.querySelector(".slider-container-right");
         Right.style.display = Right.style.display === 'none' ? 'block' : 'none';
+        var Quee = document.querySelector(".marquee");
+        Quee.style.display = Quee.style.display === 'none' ? 'block' : 'none';
+        var Quef = document.querySelector(".marquef");
+        Quef.style.display = Quef.style.display === 'none' ? 'block' : 'none';
         var backgroundContainer = document.querySelector('.background-container');
         if (Left.style.display === 'block')
         {
@@ -134,8 +192,24 @@
         Left.style.display = 'none';
         var Right = document.querySelector(".slider-container-right");
         Right.style.display = 'none';
+        var Quee = document.querySelector(".marquee");
+        Quee.style.display = 'none';
+        var Quef = document.querySelector(".marquef");
+        Quef.style.display = 'none';
         var backgroundContainer = document.querySelector('.background-container');
         backgroundContainer.style.backgroundColor= '#6c80a8';
+      }
+      function WarmButton() {
+        var Left = document.querySelector(".slider-container-left");
+        Left.style.display = 'none';
+        var Right = document.querySelector(".slider-container-right");
+        Right.style.display = 'none';
+        var Quee = document.querySelector(".marquee");
+        Quee.style.display = 'none';
+        var Quef = document.querySelector(".marquef");
+        Quef.style.display = 'none';
+        var backgroundContainer = document.querySelector('.background-container');
+        backgroundContainer.style.backgroundColor= '#e9a475';
       }
     </script>
   </head>
@@ -155,6 +229,7 @@
     -->
     <button class="toggle-button" onclick="DarkButton()">dark</button>
     <button class="cool-button" onclick="CoolButton()">cool</button>
+    <button class="warm-button" onclick="WarmButton()">warm</button>
     <div class="slider-container-left">
       <div class="slider-left">
         <img src="picture/1.jpg">
@@ -190,6 +265,12 @@
         <img src="picture/-6.jpg">
         <img src="picture/-7.jpg">
       </div>
+    </div>
+    <div class="marquee">
+      <span>本项目由梁文杰、翟子豪、周益涛合作完成，为世界和平贡献了自己的力量。</span>
+    </div>
+    <div class="marquef">
+      <span>富强 民主 文明 和谐 自由 平等 公正 法治 爱国 敬业 诚信 友善</span>
     </div>
   </body>
 </html>
