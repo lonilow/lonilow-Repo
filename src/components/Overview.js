@@ -12,7 +12,23 @@ const Overview = React.memo(({ selectedData }) =>{
   const nameData = selectedData.map((item) => item.Name);
   const budgetData = selectedData.map((item) => item.Budget);
   const option = {  
-   
+    title:{
+      text:'利润-投入',
+      
+    },
+    tooltip: {  
+      trigger: 'axis', 
+      //textstyle
+      formatter: function (params) {  
+          // 自定义tooltip的内容
+          const dataIndex = params[0].dataIndex;
+          const gross = params[0].value;  
+          const year = yearData[dataIndex];
+          const movie = nameData[dataIndex];  
+          const budget = budgetData[dataIndex];  
+          return `Movie: ${movie}<br/>Year: ${year}<br/>Gross：${gross}<br/>Budget：${budget}`;  
+      },  
+  }, 
     grid: {  
       containLabel: true  
     },    
@@ -38,8 +54,11 @@ const Overview = React.memo(({ selectedData }) =>{
     series: [  
       {  
         name: 'value',  
-        type: 'line',  
+        type: 'scatter',  
         stack: 'Total',  
+        itemStyle :{  
+          color: '#4c9be6',
+      },
         data: grossData 
       },  
     ]  
@@ -48,7 +67,6 @@ const Overview = React.memo(({ selectedData }) =>{
   return (  
     <div >  
       <ReactECharts option={option}
-      theme={"cool"}
       />  
     </div>  
   );  

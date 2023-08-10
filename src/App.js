@@ -58,16 +58,31 @@ const useStyles = makeStyles(theme => ({
 export default function App() {
   const classes = useStyles();
   const [selectedData, setSelectedData] = useState([]); // 创建状态来存储selectedRowData  
+  //用于操纵detailview   来自control  
+  const [selectedValue1, setSelectedValue1] = useState('');  
+  const [selectedValue2, setSelectedValue2] = useState(''); 
+  const handleOption1Change = (value) => {  
+    setSelectedValue1(value);  
+  };  
   
+  const handleOption2Change = (value) => {  
+    setSelectedValue2(value);  
+  };  
+
   const handleSelectedData = (data) => {  
     setSelectedData(data); // 更新selectedData状态  
   };
   return (
     <div>
-    <div className={clsx(classes.view, classes.controlPanel)}><ControlPanel /></div>
-    <div className={clsx(classes.view, classes.assistView)}><AssistView onSelectedData={handleSelectedData}/></div>
-    <div className={clsx(classes.view, classes.detailView)}><DetailView /></div>
-    <div className={clsx(classes.view, classes.overview)}><OverView selectedData={selectedData}/>  </div>
+    <div className={clsx(classes.view, classes.controlPanel)}><  ControlPanel
+      onOption1Change={handleOption1Change}  
+      onOption2Change={handleOption2Change}  
+    /> </div>
+    <div className={clsx(classes.view, classes.assistView)} ><AssistView onSelectedData={handleSelectedData}/></div>
+    <div className={clsx(classes.view, classes.detailView)} ><DetailView 
+      selectedValue1={selectedValue1} selectedValue2={selectedValue2}  
+    /></div>
+    <div className={clsx(classes.view, classes.overview)} ><OverView selectedData={selectedData} />  </div>
     <div className={clsx(classes.view, classes.overview2)}><OverView2/></div>
     </div>
   );

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useEffect } from 'react'
 import readCsvData from './ReadFiles'
-import { DataGrid, GridToolbarFilterButton,GridToolbarColumnsButton, GridToolbarContainer,} from '@material-ui/data-grid';
+import { DataGrid, GridToolbarFilterButton,GridToolbarColumnsButton, GridToolbarContainer,GridToolbarExport} from '@material-ui/data-grid';
 
 // 数据
 // 这种形式的 table id属性必须存在不要动
@@ -99,12 +99,13 @@ description: '影片时长',
 ];
 // 自定义的菜单
 function CustomToolbar() {
-return (
-<GridToolbarContainer>
-<GridToolbarColumnsButton />
-<GridToolbarFilterButton/>
-</GridToolbarContainer>
-);
+  return (
+    <GridToolbarContainer>
+    <GridToolbarColumnsButton />
+    <GridToolbarFilterButton/>
+    <GridToolbarExport/>
+    </GridToolbarContainer>
+  );
 }
 
 // 实现excel数据导入
