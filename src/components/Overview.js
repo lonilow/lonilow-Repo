@@ -73,5 +73,3 @@ const Overview = React.memo(({ selectedData }) =>{
 });
 
 export default Overview
-
-

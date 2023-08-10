@@ -9,7 +9,7 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="movie.ico"  />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -25,9 +25,123 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Easy For Movie Investors</title>
+    <style>
+      .slider-container-left {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 84px;
+        height: 840px;
+        overflow: hidden;
+        display: none;
+      }
+      .slider-left {
+        display: flex;
+        flex-direction: column;
+        animation: roll-left 7s linear infinite;
+      }
+      .slider-left img {
+        width: 84px;
+        height: 120px;
+      }
+      @keyframes roll-left {
+        0% {transform: translateY(0);}
+        100% {transform: translateY(-840px);}
+      }
+
+      .slider-container-right {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 84px;
+        height: 840px;
+        overflow: hidden;
+        display: none;
+      }
+      .slider-right {
+        display: flex;
+        flex-direction: column;
+        animation: roll-right 7s linear infinite;
+      }
+      .slider-right img {
+        width: 84px;
+        height: 120px;
+      }
+      @keyframes roll-right {
+        0% {transform: translateY(-840px);}
+        100% {transform: translateY(0);}
+      }
+
+      .background-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1651px;
+        height: 840px;
+        background-color: #6c80a8;
+        background-size: cover;
+      }
+
+      .toggle-button {
+        position: absolute;
+        bottom: 7px;
+        right: 100px;
+        padding: 10px 20px;
+        background-color: #2d2d2d;
+        color: #9d0000;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .toggle-button:hover {
+        background-color: #000000;
+        color: #700000;
+      }
+
+      .cool-button {
+        position: absolute;
+        bottom: 7px;
+        right: 300px;
+        padding: 10px 20px;
+        background-color: #6c80a8;
+        color: #e1e0e1;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      function DarkButton() {
+        var Left = document.querySelector(".slider-container-left");
+        Left.style.display = Left.style.display === 'none' ? 'block' : 'none';
+        var Right = document.querySelector(".slider-container-right");
+        Right.style.display = Right.style.display === 'none' ? 'block' : 'none';
+        var backgroundContainer = document.querySelector('.background-container');
+        if (Left.style.display === 'block')
+        {
+          backgroundContainer.style.backgroundColor ='#000000';
+        }
+        else
+        {
+          backgroundContainer.style.backgroundColor ='#6c80a8';
+        }
+      }
+
+      function CoolButton() {
+        var Left = document.querySelector(".slider-container-left");
+        Left.style.display = 'none';
+        var Right = document.querySelector(".slider-container-right");
+        Right.style.display = 'none';
+        var backgroundContainer = document.querySelector('.background-container');
+        backgroundContainer.style.backgroundColor= '#6c80a8';
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="background-container"></div>
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -39,5 +153,43 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <button class="toggle-button" onclick="DarkButton()">dark</button>
+    <button class="cool-button" onclick="CoolButton()">cool</button>
+    <div class="slider-container-left">
+      <div class="slider-left">
+        <img src="picture/1.jpg">
+        <img src="picture/2.jpg">
+        <img src="picture/3.jpg">
+        <img src="picture/4.jpg">
+        <img src="picture/5.jpg">
+        <img src="picture/6.jpg">
+        <img src="picture/7.jpg">
+        <img src="picture/1.jpg">
+        <img src="picture/2.jpg">
+        <img src="picture/3.jpg">
+        <img src="picture/4.jpg">
+        <img src="picture/5.jpg">
+        <img src="picture/6.jpg">
+        <img src="picture/7.jpg">
+      </div>
+    </div>
+    <div class="slider-container-right">
+      <div class="slider-right">
+        <img src="picture/-1.jpg">
+        <img src="picture/-2.jpg">
+        <img src="picture/-3.jpg">
+        <img src="picture/-4.jpg">
+        <img src="picture/-5.jpg">
+        <img src="picture/-6.jpg">
+        <img src="picture/-7.jpg">
+        <img src="picture/-1.jpg">
+        <img src="picture/-2.jpg">
+        <img src="picture/-3.jpg">
+        <img src="picture/-4.jpg">
+        <img src="picture/-5.jpg">
+        <img src="picture/-6.jpg">
+        <img src="picture/-7.jpg">
+      </div>
+    </div>
   </body>
 </html>

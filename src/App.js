@@ -16,6 +16,7 @@ const useStyles = makeStyles(theme => ({
   view: {
       border: '1px solid black',
       borderRadius: '5px',
+      backgroundColor:'#e1e0e1',
   },
   controlPanel: {
       position: 'absolute',
