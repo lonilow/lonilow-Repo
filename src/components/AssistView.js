@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import readCsvData from './ReadFiles'
 import { DataGrid, GridToolbarFilterButton,GridToolbarColumnsButton, GridToolbarContainer, GridToolbarExport } from '@material-ui/data-grid';
 
-
 // 数据
 // 这种形式的 table id属性必须存在不要动
 // id 不能够用相同的，否则后面的id会替代前面的
@@ -13,7 +12,8 @@ const columns = [
     field: 'id',  
     headerName: 'ID',  
     width: 90,  
-    type:'number'
+    type:'number',
+    hide:true,
   },  
   {  
     field: 'Name',  
@@ -123,6 +123,7 @@ async function useData() {
 
 export default function DataTable() {
   const [rows, setRows] = React.useState([]);  
+  const [selectedRows, setSelectedRows] = React.useState([]);  
   
   // 在组件顶层调用 useData 钩子函数  
   const data = useData();  
@@ -140,8 +141,15 @@ export default function DataTable() {
     });  
   }, [data]);   
   //console.log(rows);
-  const companyData = rows.map(item => item.Company);
   //console.log(companyData);
+
+  useEffect(() => {  
+    const selectedRowData = selectedRows.map((selectedRow) => {  
+      return rows.find((row) => row.id === selectedRow);  
+    });  
+    console.log(selectedRowData);  
+  }, [selectedRows, rows]); 
+  
   return (
     <div style={{ height: '100%', width: '100%' }}>
       <DataGrid
@@ -153,8 +161,12 @@ export default function DataTable() {
         components={{
           Toolbar: CustomToolbar,
         }}
-        // checkboxSelection  实现选择
-        // disableSelectionOnClick
+         checkboxSelection  //实现选择
+         disableSelectionOnClick
+
+         onSelectionModelChange={(newSelection) => {  
+          setSelectedRows(newSelection);  
+        }} 
       />
     </div>
   );

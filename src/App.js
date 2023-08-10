@@ -1,7 +1,7 @@
-import React from 'react';
+
 import clsx from "clsx";
 import {makeStyles} from "@material-ui/core";
-
+import React, { useState } from 'react';
 
 import ControlPanel from "./components/ControlPanel";
 import AssistView from "./components/AssistView";
@@ -55,14 +55,18 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function App(props) {
+export default function App() {
   const classes = useStyles();
+  const [selectedData, setSelectedData] = useState([]);  
+  const handleSelectionChange = (selectedRows) => {  
+    setSelectedData(selectedRows);  
+  };  
   return (
     <div>
     <div className={clsx(classes.view, classes.controlPanel)}><ControlPanel /></div>
-    <div className={clsx(classes.view, classes.assistView)}><AssistView /></div>
-    <div className={clsx(classes.view, classes.detailView)}><DetailView/></div>
-    <div className={clsx(classes.view, classes.overview)}><OverView/></div>
+    <div className={clsx(classes.view, classes.assistView)}><AssistView onSelectionChange={handleSelectionChange}/></div>
+    <div className={clsx(classes.view, classes.detailView)}><DetailView /></div>
+    <div className={clsx(classes.view, classes.overview)}><OverView selectedData={selectedData} />  </div>
     <div className={clsx(classes.view, classes.overview2)}><OverView2/></div>
     </div>
   );
