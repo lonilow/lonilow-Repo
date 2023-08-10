@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import ControlPanel from "./components/ControlPanel";
 import AssistView from "./components/AssistView";
 import DetailView from "./components/DetailView";
-import OverView from "./components/OverView";
+import OverView from "./components/Overview";
 import OverView2 from "./components/OverView2";
 
 
@@ -57,16 +57,17 @@ const useStyles = makeStyles(theme => ({
 
 export default function App() {
   const classes = useStyles();
-  const [selectedData, setSelectedData] = useState([]);  
-  const handleSelectionChange = (selectedRows) => {  
-    setSelectedData(selectedRows);  
-  };  
+  const [selectedData, setSelectedData] = useState([]); // 创建状态来存储selectedRowData  
+  
+  const handleSelectedData = (data) => {  
+    setSelectedData(data); // 更新selectedData状态  
+  };
   return (
     <div>
     <div className={clsx(classes.view, classes.controlPanel)}><ControlPanel /></div>
-    <div className={clsx(classes.view, classes.assistView)}><AssistView onSelectionChange={handleSelectionChange}/></div>
+    <div className={clsx(classes.view, classes.assistView)}><AssistView onSelectedData={handleSelectedData}/></div>
     <div className={clsx(classes.view, classes.detailView)}><DetailView /></div>
-    <div className={clsx(classes.view, classes.overview)}><OverView selectedData={selectedData} />  </div>
+    <div className={clsx(classes.view, classes.overview)}><OverView selectedData={selectedData}/>  </div>
     <div className={clsx(classes.view, classes.overview2)}><OverView2/></div>
     </div>
   );

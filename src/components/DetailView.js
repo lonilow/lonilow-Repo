@@ -2,7 +2,6 @@ import React from 'react';
 import ReactECharts from 'echarts-for-react';  
 import { useEffect } from 'react';  
 import readCsvData from './ReadFiles';  
-  
 // 数据导入  
 async function useData() {  
   //csv  
@@ -98,15 +97,8 @@ function DetailView() {
       {  
         type: 'inside',  
         xAxisIndex: [0],  
-        start: 1970,  
-        end: 2020,  
       },  
-      {  
-        type: 'inside',  
-        yAxisIndex: [0],  
-        start: 0,  
-        end: 15,  
-      },  
+      
     ],  
     series: [  
       {  
@@ -122,7 +114,9 @@ function DetailView() {
   
   return (  
     <div >  
-      <ReactECharts option={options} />  
+      <ReactECharts option={options}
+      
+      />  
     </div>  
   );  
 }  
