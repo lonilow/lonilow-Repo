@@ -145,7 +145,7 @@ const DataTable = React.memo(({ onSelectedData})=> {
     const selectedRowData = selectedRows.map((selectedRow) => {
     return rows.find((row) => row.id === selectedRow);
     });
-    console.log('selectedRowData');
+    //console.log('selectedRowData');
     onSelectedData(selectedRowData);
   }, [selectedRows]);
 

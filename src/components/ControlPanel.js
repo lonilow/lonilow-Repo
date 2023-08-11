@@ -20,25 +20,25 @@ export default function DropdownSelect({ onOption1Change, onOption2Change }) {
   const [selectedOption1, setSelectedOption1] = React.useState('Year');    
   const [selectedOption2, setSelectedOption2] = React.useState('line');    
     
-  const handleChange1 = (event) => {    
+  const handleChange1 = (event) => {
     const value = event.target.value;    
-    if (value !== selectedOption1) {    
-      setSelectedOption1(value);    
+    if (value !== selectedOption1) {
+      setSelectedOption1(value);
       onOption1Change(value); // 调用回调函数，将选择的值传递给父组件    
-    }    
+    }
   };    
     
-  const handleChange2 = (event) => {    
+  const handleChange2 = (event) => {
     const value = event.target.value;    
     if (value !== selectedOption2) {    
       setSelectedOption2(value);    
       onOption2Change(value); // 调用回调函数，将选择的值传递给父组件    
-    }    
-  };    
+    }
+  };
     
   return (    
     <div>    
-      <FormControl className={classes.formControl} style={{ marginTop: '10%', marginLeft: '25%' }}>    
+      <FormControl className={classes.formControl} style={{ marginTop: '5%', marginLeft: '25%' }}>    
         <InputLabel id="demo-simple-select-label">选择x轴</InputLabel>    
         <Select    
           labelId="demo-simple-select-label"    

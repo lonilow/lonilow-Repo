@@ -70,7 +70,7 @@ export default function App() {
   };  
 
   const handleSelectedData = (data) => {  
-    setSelectedData(data); // 更新selectedData状态  
+    setSelectedData(data); 
   };
   return (
     <div>
@@ -79,6 +79,7 @@ export default function App() {
       onOption2Change={handleOption2Change}  
     /> </div>
     <div className={clsx(classes.view, classes.assistView)} ><AssistView onSelectedData={handleSelectedData}/></div>
+   
     <div className={clsx(classes.view, classes.detailView)} ><DetailView 
       selectedValue1={selectedValue1} selectedValue2={selectedValue2}  
     /></div>
